@@ -102,6 +102,7 @@ namespace ExcelToXML.Presentation
             this._outputTextArea.Multiline = true;
             this._outputTextArea.Name = "_outputTextArea";
             this._outputTextArea.ReadOnly = true;
+            this._outputTextArea.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this._outputTextArea.Size = new System.Drawing.Size(556, 243);
             this._outputTextArea.TabIndex = 6;
             // 
@@ -123,7 +124,7 @@ namespace ExcelToXML.Presentation
             this.label2.TabIndex = 8;
             this.label2.Text = "Output XML files path:";
             // 
-            // Form1
+            // ExcelToXMLMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;

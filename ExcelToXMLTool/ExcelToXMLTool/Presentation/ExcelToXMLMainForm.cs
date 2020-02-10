@@ -18,6 +18,7 @@ namespace ExcelToXML.Presentation
             _progressBar.Value = 0;
             _progressBar.Minimum = 0;
             _progressBar.Maximum = 101;
+            _outputTextArea.Cursor = DefaultCursor;
         }
 
         private TextBox _excelFolderPathField;
@@ -80,7 +81,7 @@ namespace ExcelToXML.Presentation
 
         private void OnFileStartedProcessing(string message)
         {
-            _outputTextArea.Text += $"{message}\r\n";
+            _outputTextArea.AppendText($"{message}\r\n");
         }
 
         private void OnProgressBarUpdated(int percentageProcessed)
