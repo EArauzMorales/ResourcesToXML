@@ -98,6 +98,10 @@ namespace ExcelToXML.Engine
                         doc.Save(fileName);
                     }
                 }
+                else
+                {
+                    doc.Save(fileName);
+                }
                 FileProcessing?.Invoke($"File '{rootFileName}_{columnName}.resx.xml' successfully exported");
             }
         }
