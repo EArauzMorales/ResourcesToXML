@@ -23,7 +23,6 @@ namespace ExcelToXML.Engine
         private const string KEYCOL = "A";
         private const string CATEGORYCOL = "B";
         private const string TYPECOL = "C";
-        private Dictionary<string, string> _langCols;
         private const string rootNode = "root";
         private const string resheaderNode = "resheader";
         private const string dataNode = "data";
@@ -41,7 +40,6 @@ namespace ExcelToXML.Engine
             _ExcelApp = new Application();
             _workbook = _ExcelApp.Workbooks.Open(_sSelectedExcelFile, 0, true, 5, "", "", true, XlPlatform.xlWindows, "\t", false, false, 0, true);
             _sheetsDictionary = new Dictionary<string, Worksheet>();
-            _langCols = new Dictionary<string, string>();
 
             foreach (Worksheet sheet in _workbook.Worksheets)
             {
@@ -57,7 +55,7 @@ namespace ExcelToXML.Engine
             }
         }
 
-        private List<XmlDocument> ProcessSheet(Worksheet sheet)
+        private void ProcessSheet(Worksheet sheet)
         {
             string rootFileName = sheet.Name;
             List<XmlDocument> docs = new List<XmlDocument>();
@@ -102,8 +100,6 @@ namespace ExcelToXML.Engine
                 }
                 FileProcessing?.Invoke($"File '{rootFileName}_{columnName}.resx.xml' successfully exported");
             }
-
-            return docs;
         }
 
         private XmlDocument CreateLanguageXML(Range labels, Range translation)
